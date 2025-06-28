@@ -51,7 +51,11 @@ def create_app():
     notification_scheduler.init_app(app)
     
     # Enable CORS
-    CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+    CORS(app, resources={r"/*": {"origins": [
+    "http://localhost:3000",
+    "https://web-dairy-track-tsth-2.vercel.app"
+]}})
+
     
     # Initialize Socket.IO
     socketio = init_socketio(app)
